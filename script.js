@@ -13,7 +13,23 @@ function getHumanChoice(){
         case 'rock': return 'Rock';
         case 'paper': return 'Paper';
         case 'scissor': return 'Scissor';
-        default: console.log("Dumb human can't read, lol!");
+        default: 
+            console.log("Dumb human can't read, lol!");
+            return null;
+    }
+}
+
+function playRound(userChoice, compChoice){
+    if(userChoice===null | (userChoice==='Rock'&compChoice==='Paper')|(userChoice==='Paper'&compChoice==='Scissor')|(userChoice==='Scissor'&compChoice==='Rock')){
+        console.log(`You lose! ${compChoice} beats ${userChoice}.`);
+        computerScore+=1;
+    }
+    else if((compChoice==='Rock'&userChoice==='Paper')|(compChoice==='Paper'&userChoice==='Scissor')|(compChoice==='Scissor'&userChoice==='Rock')){
+        console.log(`You win! ${userChoice} beats ${compChoice}.`);
+        humanScore+=1;
+    }
+    else{
+        console.log(`It's a draw. You chose ${userChoice} and computer chose ${compChoice}`);
     }
 }
 
