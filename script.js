@@ -16,3 +16,8 @@ function getHumanChoice(){
         default: console.log("Dumb human can't read, lol!");
     }
 }
+
+let humanScore=0;
+let computerScore=0;
+
+
