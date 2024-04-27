@@ -19,21 +19,31 @@ function getHumanChoice(){
     }
 }
 
-function playRound(userChoice, compChoice){
-    if(userChoice===null | (userChoice==='Rock'&compChoice==='Paper')|(userChoice==='Paper'&compChoice==='Scissor')|(userChoice==='Scissor'&compChoice==='Rock')){
-        console.log(`You lose! ${compChoice} beats ${userChoice}.`);
-        computerScore+=1;
+
+function playGame(){
+    function playRound(userChoice, compChoice){
+        if(userChoice===null | (userChoice==='Rock'&compChoice==='Paper')|(userChoice==='Paper'&compChoice==='Scissor')|(userChoice==='Scissor'&compChoice==='Rock')){
+            console.log(`You lose! ${compChoice} beats ${userChoice}.`);
+            computerScore+=1;
+        }
+        else if((compChoice==='Rock'&userChoice==='Paper')|(compChoice==='Paper'&userChoice==='Scissor')|(compChoice==='Scissor'&userChoice==='Rock')){
+            console.log(`You win! ${userChoice} beats ${compChoice}.`);
+            humanScore+=1;
+        }
+        else{
+            console.log(`It's a draw. You chose ${userChoice} and computer chose ${compChoice}`);
+        }
     }
-    else if((compChoice==='Rock'&userChoice==='Paper')|(compChoice==='Paper'&userChoice==='Scissor')|(compChoice==='Scissor'&userChoice==='Rock')){
-        console.log(`You win! ${userChoice} beats ${compChoice}.`);
-        humanScore+=1;
-    }
-    else{
-        console.log(`It's a draw. You chose ${userChoice} and computer chose ${compChoice}`);
-    }
+    
+    let humanScore=0;
+    let computerScore=0;
+
+    playRound(getHumanChoice(),getComputerChoice());
+    playRound(getHumanChoice(),getComputerChoice());
+    playRound(getHumanChoice(),getComputerChoice());
+    playRound(getHumanChoice(),getComputerChoice());
+    playRound(getHumanChoice(),getComputerChoice());
+
+    console.log(`Your score ${humanScore}, computer score ${computerScore}`);
 }
-
-let humanScore=0;
-let computerScore=0;
-
 
