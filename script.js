@@ -47,3 +47,4 @@ function playGame(){
     console.log(`Your score ${humanScore}, computer score ${computerScore}`);
 }
 
+
